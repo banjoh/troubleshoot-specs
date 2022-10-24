@@ -1,0 +1,56 @@
+apiVersion: troubleshoot.sh/v1beta2
+kind: SupportBundle
+metadata:
+  name: default
+spec:
+  collectors:
+    - clusterInfo: {}
+    - clusterResources: {}
+    - logs:
+        collectorName: all-kurl-ns-logs
+        namespace: kurl
+        name: logs
+    - logs:
+        collectorName: all-rook-ceph-ns-logs
+        namespace: rook-ceph
+        name: logs
+    - logs:
+        collectorName: kotsadm-postgres-db
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-postgres
+    - logs:
+        collectorName: kotsadm-api
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-api
+    - logs:
+        collectorName: kotsadm-operator
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-operator
+    - logs:
+        collectorName: kotsadm
+        name: kots/admin_console
+        selector:
+          - app=kotsadm
+    - logs:
+        collectorName: kurl-proxy-kotsadm
+        name: kots/admin_console
+        selector:
+          - app=kurl-proxy-kotsadm
+    - logs:
+        collectorName: kotsadm-dex
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-dex
+    - logs:
+        collectorName: kotsadm-fs-minio
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-fs-minio
+    - logs:
+        collectorName: kotsadm-s3-ops
+        name: kots/admin_console
+        selector:
+          - app=kotsadm-s3-ops
