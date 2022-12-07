@@ -1,0 +1,26 @@
+apiVersion: troubleshoot.sh/v1beta2
+kind: SupportBundle
+metadata:
+  name: dnf-packages
+spec:
+  hostCollectors:
+    - run:
+        collectorName: "dnf-list-installed"
+        command: "dnf"
+        args: ["list", "installed"]
+    - run:
+        collectorName: "dnf-list-all"
+        command: "dnf"
+        args: ["list", "--all", "-v"]
+    - run:
+        collectorName: "dnf-list-recent"
+        command: "dnf"
+        args: ["list", "--recent"]
+    - run:
+        collectorName: "dnf-repolist"
+        command: "dnf"
+        args: ["repolist", "-v"]
+    - run:
+        collectorName: "dnf-history"
+        command: "dnf"
+        args: ["history", "-v"]
