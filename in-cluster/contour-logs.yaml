@@ -5,5 +5,5 @@ metadata:
 spec:
   collectors:
     - logs:
-      collectorName: contour-logs
-      namespace: projectcontour
+        collectorName: contour-logs
+        namespace: projectcontour
